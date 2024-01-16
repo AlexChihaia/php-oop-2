@@ -44,5 +44,11 @@ $cani = new Category('Cani');
 
 $gatti = new Category('Gatti');
 
+$cibo = new Type('Cibo');
+
+
+$croccantini = new Product('1', 'croccantini', 20, 'immagine', $cani, $cibo);
+
 
 var_dump($cani, $gatti);
+var_dump($croccantini);
