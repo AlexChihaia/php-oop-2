@@ -1,54 +1,81 @@
 <?php
+
+require_once './models/Category.php';
+
 class Product
 {
-    public $id;
-    public $name;
-    public $price;
-    public $image;
-    public $category;
-    public $type;
+    private $id;
+    private $name;
+    private $description;
+    private $category;
+    private $price;
+    private $image;
+    private $is_available;
 
-    public function __construct($id, $name, $price, $image, $category, $type)
+    public function __construct($_id, $_name, Category $_category)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->price = $price;
-        $this->image = $image;
-        $this->category = $category;
-        $this->type = $type;
+        $this->set_id($_id);
+        $this->set_name($_name);
+        $this->set_category($_category);
+    }
+
+    // getters
+    public function get_id()
+    {
+        return $this->id;
+    }
+    public function get_name()
+    {
+        return $this->name;
+    }
+    public function get_description()
+    {
+        return $this->description;
+    }
+    public function get_category()
+    {
+        return $this->category;
+    }
+    public function get_price()
+    {
+        return $this->price;
+    }
+    public function get_image()
+    {
+        return $this->image;
+    }
+    public function get_is_available()
+    {
+        return $this->is_available;
+    }
+
+    // setters
+    public function set_id($_id)
+    {
+        $this->id = $_id;
+    }
+    public function set_name($_name)
+    {
+        $this->name = $_name;
+    }
+    public function set_description($_description)
+    {
+        $this->description = $_description;
+    }
+    public function set_category($_category)
+    {
+        $this->category = $_category;
+    }
+    public function set_price($_price)
+    {
+        $this->price = $_price;
+    }
+    public function set_image($_image)
+    {
+        $this->image = $_image;
+    }
+    public function set_is_available($_is_available)
+    {
+        $this->is_available = $_is_available;
     }
 }
-
-class Category
-{
-    public $name;
-
-    public function __construct($name)
-    {
-        $this->name = $name;
-    }
-}
-
-class Type
-{
-    public $name;
-
-    public function __construct($name)
-    {
-        $this->name = $name;
-    }
-}
-
-
-$cani = new Category('Cani');
-
-$gatti = new Category('Gatti');
-
-$cibo = new Type('Cibo');
-
-
-$croccantini = new Product('1', 'croccantini', 20, 'immagine', $cani, $cibo);
-
-
-var_dump($cani, $gatti);
-var_dump($croccantini);
